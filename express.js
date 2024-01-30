@@ -7,7 +7,7 @@ const port = 5001
 app.use(bodyparser.json());
 app.use(cors())
 
-mongo.connect('mongodb://127.0.0.1:27017/tomDB')
+mongo.connect('mongodb+srv://sanjeev:mongodbatlasshawarma@cluster0.5aoqcdw.mongodb.net/TomDB')
 .then((()=>{console.log("connected to DB")}))
 
 const userSchema= new mongo.Schema({
