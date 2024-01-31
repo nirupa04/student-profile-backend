@@ -5,9 +5,12 @@ const bodyparser = require('body-parser')
 const app = express()
 const port = 5001
 app.use(bodyparser.json());
-app.use(cors())
+app.use(cors({
+  credentials: true,
+  origin:process.env.CLIENT_URL,
+}))
 
-mongo.connect('mongodb+srv://sanjeev:mongodbatlasshawarma@cluster0.5aoqcdw.mongodb.net/TomDB')
+mongo.connect("mongodb://localhost:27017/tomDB")
 .then((()=>{console.log("connected to DB")}))
 
 const userSchema= new mongo.Schema({
