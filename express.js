@@ -5,11 +5,8 @@ const bodyparser = require('body-parser')
 const app = express()
 const port = 5001
 app.use(bodyparser.json());
-app.use(cors({
-  credentials: true,
-  origin:process.env.CLIENT_URL,
-}))
 
+app.use(cors())
 mongo.connect("mongodb://localhost:27017/tomDB")
 .then((()=>{console.log("connected to DB")}))
 
@@ -24,14 +21,14 @@ const userSchema= new mongo.Schema({
 
 const User = mongo.model('Bb',userSchema)
 
-app.get('/users',(req,res)=>{
+app.get('https://studentprofileshowcase.onrender.com',(req,res)=>{
     User.find()
     .then((users)=>{
       res.send(users)
     })
 })
 
-app.post('/users',(req,res)=>{
+app.post('https://studentprofileshowcase.onrender.com',(req,res)=>{
   const user  = new User(req.body);
   user.save()
   .then(()=>{
