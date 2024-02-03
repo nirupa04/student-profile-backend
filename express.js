@@ -21,14 +21,14 @@ const userSchema= new mongo.Schema({
 
 const User = mongo.model('Bb',userSchema)
 
-app.get('https://studentprofileshowcase.onrender.com',(req,res)=>{
+app.get('/users',(req,res)=>{
     User.find()
     .then((users)=>{
       res.send(users)
     })
 })
 
-app.post('https://studentprofileshowcase.onrender.com',(req,res)=>{
+app.post('/users',(req,res)=>{
   const user  = new User(req.body);
   user.save()
   .then(()=>{
