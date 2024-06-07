@@ -22,7 +22,7 @@ const userSchema= new mongo.Schema({
 
 const User = mongo.model('Bb',userSchema)
 
-app.get('/users',(req,res)=>{
+app.get('https://studentprofileshowcase.onrender.com/users',(req,res)=>{
     User.find()
     .then((users)=>{
       res.send(users)
